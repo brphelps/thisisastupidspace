@@ -1,0 +1,29 @@
+# Git
+.git
+.gitignore
+
+# Node
+frontend/node_modules
+frontend/.env*
+
+# Go
+app
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# CI/CD
+.github
+
+# Documentation
+*.md
+
+# Development
+dev.sh
