@@ -1,38 +1,79 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fafafa;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.blog {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.blog-header {
+  text-align: center;
+  padding: 3rem 0;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.blog-header h1 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.blog-tagline {
+  color: #666;
+  font-style: italic;
+}
+
+.blog-content {
+  flex: 1;
+}
+
+.blog-post {
+  padding: 2rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.blog-post:last-child {
+  border-bottom: none;
+}
+
+.post-title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.post-date {
+  display: block;
+  font-size: 0.875rem;
+  color: #888;
+  margin-bottom: 1rem;
+}
+
+.post-content {
+  color: #444;
+}
+
+.blog-footer {
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 2rem;
+  border-top: 1px solid #ddd;
+  color: #888;
+  font-size: 0.875rem;
 }
