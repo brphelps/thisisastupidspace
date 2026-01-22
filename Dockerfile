@@ -9,8 +9,13 @@ COPY frontend/package.json frontend/package-lock.json ./
 # Install dependencies (cached unless package*.json changes)
 RUN npm ci
 
-# Copy frontend source and build
+# Copy frontend source
 COPY frontend/ ./
+
+# Copy posts directory (needed for generate-posts script)
+COPY posts/ /app/posts/
+
+# Build frontend (runs generate-posts via prebuild)
 RUN npm run build
 
 # Stage 2: Build Go binary
