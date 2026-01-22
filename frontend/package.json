@@ -22,8 +22,10 @@
   },
   "scripts": {
     "generate-posts": "node scripts/generate-posts.js",
+    "watch:posts": "chokidar \"../posts/**/*.md\" -c \"npm run generate-posts\"",
     "prestart": "npm run generate-posts",
     "start": "react-scripts start",
+    "dev": "run-p watch:posts start",
     "prebuild": "npm run generate-posts",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -46,5 +48,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "chokidar-cli": "^3.0.0",
+    "npm-run-all": "^4.1.5"
   }
 }

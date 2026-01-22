@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { posts } from './posts.generated';
 
 function App() {
+  const [accessibleMode, setAccessibleMode] = useState(() => {
+    const saved = localStorage.getItem('accessible-mode');
+    return saved === 'true';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('accessible-mode', String(accessibleMode));
+  }, [accessibleMode]);
+
   return (
-    <div className="blog">
+    <div className={`blog ${accessibleMode ? 'accessible' : ''}`}>
+      <button
+        className="theme-toggle"
+        onClick={() => setAccessibleMode(!accessibleMode)}
+        aria-label={accessibleMode ? 'Switch to chillwave theme' : 'Switch to accessible theme'}
+      >
+        {accessibleMode ? 'Chillwave' : 'Accessible'}
+      </button>
       <header className="blog-header">
         <h1>This Is A Stupid Space</h1>
         <p className="blog-tagline">A blog for stupid thoughts</p>

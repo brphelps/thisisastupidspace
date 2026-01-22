@@ -26,7 +26,6 @@ function generatePosts() {
       slug: filename.replace('.md', ''),
       title: data.title || 'Untitled',
       date: data.date ? new Date(data.date).toISOString().split('T')[0] : '',
-      author: data.author || '',
       tags: data.tags || [],
       summary: data.summary || '',
       draft: data.draft || false,
@@ -51,7 +50,6 @@ export interface BlogPost {
   slug: string;
   title: string;
   date: string;
-  author: string;
   tags: string[];
   summary: string;
   draft: boolean;
