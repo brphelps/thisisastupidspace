@@ -16,9 +16,9 @@ body {
 }
 
 .blog {
-  max-width: 750px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
+  padding: 2rem 3rem;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,8 +26,8 @@ body {
 
 .blog-header {
   text-align: center;
-  padding: 4rem 0 3rem;
-  margin-bottom: 3rem;
+  padding: 2.5rem 0 2rem;
+  margin-bottom: 2rem;
   position: relative;
 }
 
@@ -35,18 +35,17 @@ body {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200px;
-  height: 2px;
+  left: 0;
+  right: 0;
+  height: 1px;
   background: linear-gradient(90deg, transparent, #ff6b9d, #c44dff, #6b9dff, transparent);
 }
 
 .blog-header h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 300;
   letter-spacing: 0.1em;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
   background: linear-gradient(135deg, #ff9de0, #c44dff, #6bc5ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -61,24 +60,103 @@ body {
   letter-spacing: 0.05em;
 }
 
-.blog-content {
+.blog-layout {
+  display: flex;
+  gap: 3rem;
   flex: 1;
 }
 
-.blog-post {
-  padding: 2.5rem;
-  margin-bottom: 2rem;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
-  border-radius: 16px;
-  border: 1px solid rgba(196, 77, 255, 0.1);
-  backdrop-filter: blur(10px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.blog-sidebar {
+  width: 240px;
+  flex-shrink: 0;
 }
 
-.blog-post:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(196, 77, 255, 0.15);
-  border-color: rgba(196, 77, 255, 0.2);
+.sidebar-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #c44dff;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(196, 77, 255, 0.2);
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-list li {
+  margin-bottom: 0.5rem;
+}
+
+.post-link {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(196, 77, 255, 0.1);
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.post-link:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(196, 77, 255, 0.3);
+}
+
+.post-link.active {
+  background: rgba(196, 77, 255, 0.15);
+  border-color: rgba(196, 77, 255, 0.4);
+}
+
+.post-link-title {
+  display: block;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 400;
+  margin-bottom: 0.25rem;
+}
+
+.post-link-date {
+  display: block;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  color: #6bc5ff;
+  letter-spacing: 0.05em;
+}
+
+.blog-content {
+  flex: 1;
+  min-width: 0;
+  max-width: 800px;
+}
+
+@media (max-width: 768px) {
+  .blog-layout {
+    flex-direction: column;
+  }
+
+  .blog-sidebar {
+    width: 100%;
+    order: 2;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(196, 77, 255, 0.2);
+  }
+}
+
+.blog-post {
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(196, 77, 255, 0.1);
+  backdrop-filter: blur(10px);
 }
 
 .post-title {
@@ -175,8 +253,8 @@ body {
 
 .blog-footer {
   text-align: center;
-  padding: 3rem 0 2rem;
-  margin-top: 2rem;
+  padding: 2rem 0;
+  margin-top: auto;
   color: #9a8aa8;
   font-size: 0.85rem;
   letter-spacing: 0.05em;
@@ -217,9 +295,7 @@ body {
 }
 
 .accessible .blog-header::after {
-  background: #333;
-  height: 1px;
-  width: 100%;
+  background: #ddd;
 }
 
 .accessible .blog-header h1 {
@@ -242,15 +318,43 @@ body {
   backdrop-filter: none;
 }
 
-.accessible .blog-post:hover {
-  transform: none;
-  box-shadow: none;
-  border-color: #999;
-}
-
 .accessible .post-title {
   color: #111;
   font-weight: 600;
+}
+
+.accessible .sidebar-title {
+  color: #333;
+  border-bottom-color: #ddd;
+}
+
+.accessible .post-link {
+  background: #fafafa;
+  border-color: #ddd;
+}
+
+.accessible .post-link:hover {
+  background: #f0f0f0;
+  border-color: #999;
+}
+
+.accessible .post-link.active {
+  background: #e8e8e8;
+  border-color: #666;
+}
+
+.accessible .post-link-title {
+  color: #111;
+}
+
+.accessible .post-link-date {
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .accessible .blog-sidebar {
+    border-top-color: #ddd;
+  }
 }
 
 .accessible .post-date {

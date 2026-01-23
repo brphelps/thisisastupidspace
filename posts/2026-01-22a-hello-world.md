@@ -12,8 +12,9 @@ I keep having thoughts that I want to record and talk about, but I don't have a 
 
 I'm a pretty candid person and I seem to have opinions that are partially shared by many, and wholly shared by few.
 
-- I'm a software engineer, so you might get a lot of industry garbage.
-- I get REALLY distracted by leadership and social dyanmics, it's more likely I'll talk about that.
+- All of my opinions are personal, and not a reflection of my employer in any way.
+- I'm a software engineer, so you might get a lot of industry garbage. I talk about AI, I might not LIKE AI or what it's doing for our industry.
+- I get REALLY distracted by leadership and social dynamics, it's more likely I'll talk about that.
 - I date on and off again, and it's really not uncommon for me to react poorly to the selection / survivorship bias experience that is online dating. You might get some of that, too.
 
 ## Why "A Stupid Space"?
